@@ -1,10 +1,12 @@
 import time
 from binary_search_tree import BinarySearchTree
-
+from random import shuffle
+from AVLTree.AVLTree import AVLTree
 start_time = time.time()
 
 f = open('names_1.txt', 'r')
 names_1 = f.read().split("\n")  # List containing 10000 names
+shuffle(names_1)
 f.close()
 
 f = open('names_2.txt', 'r')
@@ -18,6 +20,13 @@ f.close()
 #             duplicates.append(name_1)
 
 """Runtime complexity of above is O(len(names_1) * len(names_2))"""
+
+# tree = AVLTree()
+# tree.insert(names_1)
+# duplicates = []
+# for name in names_2:
+#     if tree.search(name):
+#         duplicates.append(name)
 
 tree = BinarySearchTree(names_1[0])
 for name in names_1[1:]:
